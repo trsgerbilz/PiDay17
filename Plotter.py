@@ -3,9 +3,6 @@ import matplotlib.pyplot as plot
 import math
 
 
-step = 12
-
-
 def gen_plot(step):
     pi = []
     probability =[]
@@ -20,12 +17,13 @@ def gen_plot(step):
         resolution *= 2
 
     line1, = plot.plot(pi, label='Pi')
-    line2, = plot.plot(pie, label='Pie')
-    line3, = plot.plot(error, label='Wrongness')
+    line2, = plot.plot(pie, label='Pie: {:.5f}'.format(pie[-1]))
+    line3, = plot.plot(error, label='Wrongness: {:.2f}%'.format(error[-1]))
 
     plot.legend(handles=[line1, line2, line3])
     plot.show()
 
+step = int(input("input number of iterations: "))
 gen_plot(step)
 
 
